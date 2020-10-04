@@ -1,0 +1,23 @@
+def gitBranch() {
+    def branch = ""
+    def proc = "git rev-parse --abbrev-ref HEAD".execute()
+    proc.in.eachLine { line -> branch = line }
+    proc.err.eachLine { line -> println line }
+    proc.waitFor()
+    branch
+}
+
+
+
+ext{
+
+val=gitBranch()
+print(val)
+}
+
+
+
+
+https://api.github.com/repos/patilb/Learning/pulls
+https://www.idalko.com/jira-github-integration/
+https://engineering.nodesagency.com/categories/qa/2019/09/17/Github-And-Jira-Integration
